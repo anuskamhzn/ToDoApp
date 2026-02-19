@@ -1,0 +1,45 @@
+﻿@model ToDoApp.Models.TaskItem
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create New Task</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" autofocus />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <!-- Optional: show checkbox, but default false -->
+            <!-- If you don't want to show it at all during create, delete this block -->
+            <div class="form-check mb-3">
+                <input class="form-check-input" asp-for="IsCompleted" type="checkbox" />
+                <label class="form-check-label" asp-for="IsCompleted">
+                    Mark as completed immediately
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-action="Index" class="btn btn-outline-secondary ms-2">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

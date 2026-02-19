@@ -1,0 +1,16 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.db
+*.log
+*.ncrunch*
+*.resharper
+*.userosscache
+*.sln.docstates
+*.cache
+
+# Node (if you ever use React frontend)
+node_modules/
